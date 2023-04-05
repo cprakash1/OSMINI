@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import javax.swing.border.EmptyBorder;
@@ -18,84 +19,98 @@ import javax.swing.JPanel;
 import java.awt.Font;
 import java.awt.Color;
 
-  
 @SuppressWarnings("serial")
 class login extends JFrame implements ActionListener {
-  JButton SUBMIT;
-  JPanel panel;
-  JLabel label2;
+	JButton SUBMIT;
+	JPanel panel;
+	JLabel label2;
 
-   login()  {
-   label2 = new JLabel();
-   label2.setBounds(250, 200, 400, 52);
-   label2.setText("OUR MINI OS PROJECT");
-   label2.setFont(new Font("Arial", Font.BOLD, 24));
-   label2.setForeground(Color.WHITE);
-  
-   SUBMIT=new JButton("LOGIN");
-   SUBMIT.setBackground(Color.DARK_GRAY);
-   SUBMIT.setForeground(Color.WHITE);
-   SUBMIT.setFocusPainted(false);
-   SUBMIT.setFocusable(false);
-   SUBMIT.setBounds(325, 300, 105, 34);
-   
-   panel=new JPanel();
-   panel.setLayout(null);
-//    panel.add(label1);
-   panel.add(label2);
-   panel.add(SUBMIT);
-   getContentPane().add(panel,BorderLayout.CENTER);
-   getContentPane().setBackground(Color.BLACK);;
-   getContentPane().setForeground(Color.white);;
-   panel.setBackground(Color.BLACK);
-   panel.setForeground(Color.WHITE);
-   SUBMIT.addActionListener(this);
-   setTitle("WELCOME TO OUR MINI OS PROJECT");
-   }
-  public void actionPerformed(ActionEvent ae)
-   {
+	login() throws IOException {
+		label2 = new JLabel();
+		label2.setBounds(250, 230, 400, 52);
+		label2.setText("OUR MINI OS PROJECT");
+		label2.setFont(new Font("Arial", Font.BOLD, 24));
+		label2.setForeground(Color.WHITE);
 
-   this.dispose();
-   Desktop d=new Desktop();
-   d.setVisible(true);
+		SUBMIT = new JButton("LOGIN");
+		SUBMIT.setBackground(Color.DARK_GRAY);
+		SUBMIT.setForeground(Color.WHITE);
+		SUBMIT.setFocusPainted(false);
+		SUBMIT.setFocusable(false);
+		SUBMIT.setBounds(325, 300, 105, 34);
 
- }
- }
-  class logindemo
- {
-   private JPanel contentPane;
-   public static void main(String[] args) {
-	EventQueue.invokeLater(new Runnable() {
-		public void run() {
-   			try {
-   				login frame=new login();
-				   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				   frame.setSize(800,500);
-				   frame.setLocationRelativeTo(null);
-   					frame.setVisible(true);
-					frame.setResizable(false);
-   			    }
-		        catch(Exception e){
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			    }
-  		 }
+		panel = new JPanel();
+		panel.setLayout(null);
+		// panel.add(label1);
+		panel.add(label2);
+		panel.add(SUBMIT);
+		getContentPane().add(panel, BorderLayout.CENTER);
+		getContentPane().setBackground(Color.BLACK);
+		;
+		getContentPane().setForeground(Color.white);
+		;
+		panel.setBackground(Color.BLACK);
+		panel.setForeground(Color.WHITE);
+		SUBMIT.addActionListener(this);
+		setTitle("WELCOME TO OUR MINI OS PROJECT");
+		JLabel im = new JLabel();
+		// ImageIcon img = new ImageIcon("cp.png");
+		ImageIcon img = new ImageIcon(ImageIO.read(new File("cp.png")).getScaledInstance(200, 150, Image.SCALE_SMOOTH));
+		im.setIcon(img);
+		panel.add(im);
+		im.setBounds(280, 50, 300, 200);
+		// Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+		// setPreferredSize(size);
+		// setMinimumSize(size);
+		// setMaximumSize(size);
+		// setSize(size);
+		// setLayout(null);
+	}
 
-	});
+	public void actionPerformed(ActionEvent ae) {
+
+		this.dispose();
+		Desktop d = new Desktop();
+		d.setVisible(true);
+
+	}
 }
+
+class logindemo {
+	private JPanel contentPane;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					login frame = new login();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setSize(800, 500);
+					frame.setLocationRelativeTo(null);
+					frame.setVisible(true);
+					frame.setResizable(false);
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+			}
+
+		});
+	}
 }
 
 @SuppressWarnings("serial")
 class Desktop extends JFrame {
 	private JPanel contentPane;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Desktop frame = new Desktop();
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				   frame.setSize(800,500);
-				   frame.setLocationRelativeTo(null);
-   					frame.setVisible(true);
+					frame.setSize(800, 500);
+					frame.setLocationRelativeTo(null);
+					frame.setVisible(true);
 					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -104,12 +119,12 @@ class Desktop extends JFrame {
 		});
 	}
 
-	 Desktop()  {
+	Desktop() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(800,500);
+		setSize(800, 500);
 		setLocationRelativeTo(null);
-   		setVisible(true);
+		setVisible(true);
 		setResizable(false);
 		setTitle("Desktop");
 		contentPane = new JPanel();
@@ -135,8 +150,8 @@ class Desktop extends JFrame {
 		com.setFocusable(false);
 		com.setBorderPainted(false);
 		contentPane.add(com);
-		
-		JButton text=new JButton("EDITOR");
+
+		JButton text = new JButton("EDITOR");
 		text.setIcon(new ImageIcon("editor.jpg"));
 		text.setVerticalTextPosition(SwingConstants.BOTTOM);
 		text.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -153,13 +168,12 @@ class Desktop extends JFrame {
 		text.setBorderPainted(false);
 		contentPane.add(text);
 
-		
 		JButton ter = new JButton("TERMINAL");
 		ter.setIcon(new ImageIcon("terminal.jpg"));
 		ter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Terminal term = Terminal.getInstance();
-        			term.open(0, 0, 1000, 600);
+				term.open(0, 0, 1000, 600);
 			}
 		});
 		ter.setBounds(280, 29, 200, 150);
@@ -171,24 +185,23 @@ class Desktop extends JFrame {
 		ter.setBorderPainted(false);
 		contentPane.add(ter);
 
-		
 		JButton disk = new JButton("Disk Scheduling Algorithms");
 		disk.setIcon(new ImageIcon("disk.jpg"));
 		disk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
-				public void run() {
-				try {
-					gui_disk window = new gui_disk();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+					public void run() {
+						try {
+							gui_disk window = new gui_disk();
+							window.frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 			}
 		});
-			}
-		});
-		disk.setBounds(72, 257, 200, 150);
+		disk.setBounds(10, 257, 200, 150);
 		disk.setVerticalTextPosition(SwingConstants.BOTTOM);
 		disk.setHorizontalTextPosition(SwingConstants.CENTER);
 		disk.setBackground(Color.DARK_GRAY);
@@ -196,7 +209,7 @@ class Desktop extends JFrame {
 		disk.setFocusable(false);
 		disk.setBorderPainted(false);
 		contentPane.add(disk);
-		
+
 		JButton game = new JButton("Snake Game");
 		game.setIcon(new ImageIcon("snake.jpg"));
 		game.addActionListener(new ActionListener() {
@@ -206,7 +219,7 @@ class Desktop extends JFrame {
 			}
 		});
 		// game.setBounds(275, 207, 135, 96);
-		game.setBounds(450, 257, 200, 150);
+		game.setBounds(280, 257, 200, 150);
 		game.setVerticalTextPosition(SwingConstants.BOTTOM);
 		game.setHorizontalTextPosition(SwingConstants.CENTER);
 		game.setBackground(Color.DARK_GRAY);
@@ -214,7 +227,24 @@ class Desktop extends JFrame {
 		game.setFocusable(false);
 		game.setBorderPainted(false);
 		contentPane.add(game);
-		
+
+		JButton author = new JButton("COLLABORATORS");
+		author.setIcon(new ImageIcon("collab.jpg"));
+		author.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				collaborator g = new collaborator();
+				g.setVisible(true);
+			}
+		});
+		// game.setBounds(275, 207, 135, 96);
+		author.setBounds(530, 257, 200, 150);
+		author.setVerticalTextPosition(SwingConstants.BOTTOM);
+		author.setHorizontalTextPosition(SwingConstants.CENTER);
+		author.setBackground(Color.DARK_GRAY);
+		author.setForeground(Color.WHITE);
+		author.setFocusable(false);
+		author.setBorderPainted(false);
+		contentPane.add(author);
 	}
 
 }
