@@ -61,7 +61,7 @@ class login extends JFrame implements ActionListener {
 
  }
  }
-  class loginDemo
+  class logindemo
  {
    private JPanel contentPane;
    public static void main(String[] args) {
