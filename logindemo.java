@@ -185,31 +185,6 @@ class Desktop extends JFrame {
 		ter.setBorderPainted(false);
 		contentPane.add(ter);
 
-		JButton disk = new JButton("Disk Scheduling Algorithms");
-		disk.setIcon(new ImageIcon("disk.jpg"));
-		disk.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							gui_disk window = new gui_disk();
-							window.frame.setVisible(true);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-			}
-		});
-		disk.setBounds(10, 257, 200, 150);
-		disk.setVerticalTextPosition(SwingConstants.BOTTOM);
-		disk.setHorizontalTextPosition(SwingConstants.CENTER);
-		disk.setBackground(Color.DARK_GRAY);
-		disk.setForeground(Color.WHITE);
-		disk.setFocusable(false);
-		disk.setBorderPainted(false);
-		contentPane.add(disk);
-
 		JButton game = new JButton("Snake Game");
 		game.setIcon(new ImageIcon("snake.jpg"));
 		game.addActionListener(new ActionListener() {
@@ -219,7 +194,7 @@ class Desktop extends JFrame {
 			}
 		});
 		// game.setBounds(275, 207, 135, 96);
-		game.setBounds(280, 257, 200, 150);
+		game.setBounds(120, 257, 200, 150);
 		game.setVerticalTextPosition(SwingConstants.BOTTOM);
 		game.setHorizontalTextPosition(SwingConstants.CENTER);
 		game.setBackground(Color.DARK_GRAY);
@@ -237,7 +212,7 @@ class Desktop extends JFrame {
 			}
 		});
 		// game.setBounds(275, 207, 135, 96);
-		author.setBounds(530, 257, 200, 150);
+		author.setBounds(430, 257, 200, 150);
 		author.setVerticalTextPosition(SwingConstants.BOTTOM);
 		author.setHorizontalTextPosition(SwingConstants.CENTER);
 		author.setBackground(Color.DARK_GRAY);

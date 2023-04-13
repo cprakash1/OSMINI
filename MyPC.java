@@ -42,6 +42,7 @@ private JPanel contentPane;
 
 	      FileReader reader = null;
 	      try {
+			// System.out.println("ho");
 	        reader = new FileReader(file);
 	      }
 	      catch (IOException ex) {
